@@ -24,3 +24,6 @@ git remote add origin https://github.com/webuxmotion/bun.git
 git branch -M main
 git push -u origin main
 ```
+Where https://github.com/webuxmotion/bun.git is your repository link in command `git remote add origin https://github.com/webuxmotion/bun.git`
+* Find the right command here (on your repository site):
+![](./img/github-push-commands.png)

@@ -47,7 +47,9 @@ bunx --bun vite
 ## Other
 
 * You can change dev command in package.json to this command:
-`bunx --bun vite`
+```
+"dev": "bunx --bun vite",
+```
 ![](./img/dev-package-json.png)
 and run the application with this command:
 `bun run dev`
