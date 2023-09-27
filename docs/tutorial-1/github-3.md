@@ -2,7 +2,7 @@
 sidebar_position: 3
 ---
 
-# Github
+# Github Initial Commit
 
 ## 1) Create repository on github
 
