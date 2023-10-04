@@ -6,7 +6,7 @@ sidebar_position: 10
 
 - **Create IAM users and groups** - **[Link](https://docs.aws.amazon.com/cli/latest/userguide/cli-services-iam-new-user-group.html)**.
 
-## Create user group, put policy to group, create users, attach users to group, create login profile for users and generate csv files with credentials
+## Create user group, put policy to group, create users, attach users to group, create login profile for users and generate csv file with credentials
 
 1) Create file:
 ```json title=read-access-policy.json
