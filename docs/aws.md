@@ -45,6 +45,9 @@ echo "Folder $log_folder was created!" >> $log_full_path
 aws iam create-group --group-name $group_name >> $log_full_path 2>&1
 aws iam put-group-policy --group-name $group_name --policy-document file://read-access-policy.json --policy-name $read_access_policy_name >> $log_full_path 2>&1
 
+csvFileName="users-console-credentials.csv"
+echo "User name,Password,Console sign-in URL" > $csvFileName
+
 for name in ${user_names[@]}
 do
     aws iam create-user --user-name $name >> $log_full_path 2>&1
@@ -52,8 +55,6 @@ do
     password=(`(gpg --gen-random --armor 1 8)`)
     aws iam create-login-profile --user-name $name --password $password --password-reset-required >> $log_full_path 2>&1
 
-    csvFileName=$name"-console-credentials.csv"
-    echo "User name,Password,Console sign-in URL" > $csvFileName
     echo "$name,$password,https://$account_alias.signin.aws.amazon.com/console" >> $csvFileName
 done
 ```
