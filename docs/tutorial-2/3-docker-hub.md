@@ -1,0 +1,23 @@
+---
+sidebar_position: 3
+---
+
+# Docker HUB
+
+
+![](./img/docker-hub-create-repo-step-1.png)
+![](./img/docker-hub-create-repo-step-2.png)
+
+```bash
+mvn clean package
+docker build --tag=webuxmotion/users-microservice --force-rm=true .
+docker images
+```
+
+![](./img/docker-hub-list-images.png)
+
+```
+docker push webuxmotion/users-microservice
+```
+- Go to docker hub to check the image was pushed
+![](./img/docker-hub-pushed-image-check.png)
