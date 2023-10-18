@@ -1,0 +1,37 @@
+---
+sidebar_position: 0
+---
+
+# Deploy Spring Boot Microservices on AWS ECS with Fargate
+
+export const links = [
+  {
+    "title": "Run Users Microservice and Albums Microservice using command-line",
+    "link": "clone-and-build-1",
+    "image": "/img/lessons/java-micro-services-users-and-albums.png"
+  },
+  {
+    "title": "Test endpoints in services using POSTMAN",
+    "link": "postman-check",
+    "image": "/img/lessons/postman-logo.png"
+  },
+]
+
+export const Highlight = ({ children, color, items }) => {
+  return (
+  <div className="lessons-list">
+    {items.map((el, idx) => {
+      return (
+        <div key={idx} className="lesson-card">
+          <a href={el.link}>
+            <img src={el.image} />
+            <h2 style={{ paddingLeft: '20px', paddingRight: '20px'}}>{el.title}</h2>
+          </a>
+        </div>
+      )
+    })}
+  </div>
+)
+};
+
+<Highlight color="#25c2a0" items={links}>Docusaurus green</Highlight>
