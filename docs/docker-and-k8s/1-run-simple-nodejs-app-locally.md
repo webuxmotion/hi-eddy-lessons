@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # Run app locally
 
-```
+```bash
 git clone https://github.com/webuxmotion/simple-nodejs-expressjs-app.git
 cd simple-nodejs-expressjs-app
 npm i
