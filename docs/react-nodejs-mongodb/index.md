@@ -1,39 +1,38 @@
 ---
-sidebar_position: 0
+sidebar_position: 10
 ---
 
-# ReactJS + NODEJS + MongoDB
+# Run ReactJS_NODEJS_MongoDB application in one network
 
-## Clone project
+## Clone project and go to project folder
 ```bash
 git clone https://github.com/webuxmotion/react-nodejs-mongodb
 cd react-nodejs-mongodb
-
-docker run --name mongodb -d --rm -p 27017:27017 mongo
 ```
 
-```bash title="/backend/Dockerfile"
-FROM node:alpine
-
-WORKDIR /app
-
-COPY package.json
-
-RUN npm install
-
-COPY . .
-
-EXPOSE 8000
-
-CMD ["npm", "run", "start"]
+## Create network
+```bash
+docker network create todo-net
 ```
 
+## Run mongodb container
+```bash
+docker run --name mongodb --network todo-net -d --rm -p 27017:27017 -v mongodb-data:/data/db mongo
+```
+
+## Build backend image and run backend-todo container
 ```bash
 cd backend
-docker build -t todoapp .
-docker run --name todo-app --rm todoapp
+docker build -t backend .
+docker run --name backend-todo --network todo-net -d --rm -p 8000:8000 -v $(pwd)/src:/app/src backend
 ```
 
-Mongo URL for connection:
+## Build frontend image and run frontend-todo container
+```bash
+cd ../frontend
+docker build -t frontend .
+docker run --name react-todo -d --rm -it -p 3001:3000 -v $(pwd)/src:/app/src frontend
+```
 
-"mongodb://host.docker.internal:27017/toods-app"
+## Open site in browser
+[http://localhost:3001](http://localhost:3001)
